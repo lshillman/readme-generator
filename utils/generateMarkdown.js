@@ -1,11 +1,22 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 
+const { licenses } = require("./licenses"); // VS Code really wanted to format it this way (compare to same statement in index.js). Since this was the only way that seemed to work... great, I guess!
 
+// const licenseInfo = licenses;
+console.log(licenses);
 
 
 function renderLicenseBadge(license) {
-
+  let badge = "";
+  licenses.forEach(element => {
+    if (element.name == license) {
+      badge = `[![License: ${element.name}](${element.badge})](${element.link})
+      
+      `;
+    }
+  });
+  return badge;
 }
 
 // TODO: Create a function that returns the license link

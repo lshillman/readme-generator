@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
-const getLicenseChoices = require('./utils/licenses');
+const licenses = require('./utils/licenses');
 const fs = require('fs');
 
 const questions = [
@@ -38,7 +38,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'Choose a license:',
-        choices: getLicenseChoices()
+        choices: ["none", ...licenses.getLicenseChoices()]
     },
     {
         type: 'input',

@@ -75,4 +75,7 @@ function getLicenseChoices () {
   return licenseNames;
 }
 
-module.exports = getLicenseChoices;
+module.exports = {
+    getLicenseChoices,
+    licenses
+};
