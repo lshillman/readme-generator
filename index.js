@@ -53,7 +53,9 @@ const questions = [
 function beginInquiry(){
     inquirer
         .prompt(questions)
-        .then(writeToFile(data));
+        .then((answers) => {
+            writeToFile(answers);
+          });
 }
 
 // TODO: Create a function to write README file
