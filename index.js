@@ -1,5 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown');
 const fs = require('fs');
 
 const questions = [
@@ -60,7 +61,7 @@ function beginInquiry(){
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-    fs.writeFile(`generated/README.md`, JSON.stringify(data, null, '\t'), (err) =>
+    fs.writeFile(`generated/README.md`, generateMarkdown(data, null, '\t'), (err) =>
       err ? console.log(err) : console.log('Success!'))
 }
 
