@@ -23,6 +23,7 @@ After completing the above instructions, run index.js from the command line. The
 
 ## Demo video
 
+https://user-images.githubusercontent.com/5232938/179373877-26de5915-9b40-4426-b9a6-ff8d7e8c7fa2.mp4
 
 
 ## License
