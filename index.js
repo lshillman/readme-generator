@@ -1,6 +1,6 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
+const getLicenseChoices = require('./utils/licenses');
 const fs = require('fs');
 
 const questions = [
@@ -35,9 +35,10 @@ const questions = [
         message: 'Test instructions:'
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'license',
-        message: 'Choose a license:'
+        message: 'Choose a license:',
+        choices: getLicenseChoices()
     },
     {
         type: 'input',
@@ -59,16 +60,13 @@ function beginInquiry(){
           });
 }
 
-// TODO: Create a function to write README file
 function writeToFile(data) {
     fs.writeFile(`generated/README.md`, generateMarkdown(data, null, '\t'), (err) =>
       err ? console.log(err) : console.log('Success!'))
 }
 
-// TODO: Create a function to initialize app
 function init() {
     beginInquiry();
 }
 
-// Function call to initialize app
 init();
