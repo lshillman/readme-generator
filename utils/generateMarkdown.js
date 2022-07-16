@@ -4,8 +4,6 @@
 const { licenses } = require("./licenses"); // VS Code really wanted to format it this way (compare to same statement in index.js). Since this was the only way that seemed to work... great, I guess!
 
 // const licenseInfo = licenses;
-console.log(licenses);
-
 
 function renderLicenseBadge(license) {
   let badge = "";
@@ -21,11 +19,23 @@ function renderLicenseBadge(license) {
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  let link = "";
+  licenses.forEach(element => {
+    if (element.name == license) {
+      link = `[${element.name}](${element.link})`;
+    }
+  });
+  return link;
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license != "none") {
+    return `## License\nThis project uses ${renderLicenseLink(license)}.`
+  } else {return ""}
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -50,9 +60,7 @@ function generateMarkdown(data) {
   
   ${data.tests}
   
-  ## License
-  
-  This project uses the ${data.license} license.
+  ${renderLicenseSection(data.license)}
   
   ## Questions?
   
